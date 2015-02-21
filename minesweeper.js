@@ -62,12 +62,18 @@ var boardSettings = {
 }
 
 // - bind board to DOM
-d3.select('#gameTable').selectAll("tr")
-    .data(board)
+d3.select('#gameTable')
+    .selectAll("tr")
+    .data(board.grid)
     .enter().append("tr")
+
     .selectAll("td.space")
     .data(function(d){return d;})
-    .enter().append("td.space");
+    .enter().append("td.space")
+    .style("border", "1px black solid")
+    .style("padding", "10px")
+    .text(function(d){return d.value;})
+    .style("font-size", "12px");
     // .attr('height', boardSettings.spaceHeight + 'px')
     // .attr('width', boardSettings.spaceWidth + 'px');
 
