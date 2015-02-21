@@ -74,6 +74,7 @@ d3.select('#gameTable')
     .selectAll("td.space")
     .data(function(d){return d;})
     .enter().append("td.space")
+    //.style("visibility", 'hidden')
     .style("border", "1px black solid")
     .style("padding", "10px")
     .text(function(d){return d.value;})
@@ -110,4 +111,9 @@ d3.select('#gameTable')
         return 'black';
       }
     });
+
+d3.selectAll('td.space')
+ .on('click', function(d) {
+   d3.select(this).style("visibility", "visible");
+ })
 

@@ -8,6 +8,9 @@
   height: 280px;
   width: 280px;
 }
+/*.hidden {
+    visibility: hidden;
+}*/
 
 /*td.space {
   border: 1px black solid;
