@@ -21,4 +21,20 @@ var board = makeEmptyMatrix(10);
 console.log(board);
 
 
+// Kalev
+// track board settings
+var boardSettings = {
+    spaceHeight: '28',
+    spaceWidth: '28'
+}
+
+// - bind board to DOM
+d3.select('#gameTable').selectAll("tr")
+    .data(board)
+    .enter().append("tr")
+    .selectAll("td.space")
+    .data(function(d){return d;})
+    .enter().append("td.space");
+    // .attr('height', boardSettings.spaceHeight + 'px')
+    // .attr('width', boardSettings.spaceWidth + 'px');
 

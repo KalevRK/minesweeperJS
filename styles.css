@@ -1,0 +1,21 @@
+#gameGrid {
+  height: 280px;
+  width: 280px;
+}
+
+#gameTable {
+  border: 1px solid black;
+  height: 280px;
+  width: 280px;
+}
+
+/*tr {
+  border: 1px solid black;
+}
+
+td.space {
+  border: 1px solid black;
+  padding: 10px; 
+  background-color: gray;
+  background-image: url('/img/blank.png');
+}*/
