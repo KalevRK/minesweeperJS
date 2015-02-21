@@ -14,14 +14,14 @@ var makeEmptyMatrix = function(n) {
 };
 
 var board = {};
-board.size = 10;
+board.size = 50;
 
 var bomb = {};
 bomb.locations = {};
-bomb.quant = 10;
+bomb.quant = 100;
 
 var bombRow, bombCol, bombLoc;
-while (Object.keys(bomb.locations).length < 10) {
+while (Object.keys(bomb.locations).length < bomb.quant) {
   bombRow = Math.floor(Math.random()*board.size);
   bombCol = Math.floor(Math.random()*board.size);
   bombLoc = [bombRow, bombCol];
@@ -50,7 +50,7 @@ function countNeighborBombs(row, col) {
   var bombCount = 0;
   for (var i=row-1; i<=row+1; i++) {
     for (var j=col-1; j<=col+1; j++) {
-      if (i>=0 && i<10 && j>=0 && j<10 && board.grid[i][j].value===9) {
+      if (i>=0 && i<board.size && j>=0 && j<board.size && board.grid[i][j].value===9) {
         bombCount++;
       }
     }
@@ -60,10 +60,10 @@ function countNeighborBombs(row, col) {
 
 // Kalev
 // track board settings
-var boardSettings = {
-    spaceHeight: '28',
-    spaceWidth: '28'
-}
+// var boardSettings = {
+//     spaceHeight: '28',
+//     spaceWidth: '28'
+// }
 
 // - bind board to DOM
 d3.select('#gameTable')
@@ -74,9 +74,11 @@ d3.select('#gameTable')
     .selectAll("td.space")
     .data(function(d){return d;})
     .enter().append("td.space")
-    //.style("visibility", 'hidden')
+    // .style("visibility", 'hidden')
+    // .style("display", "none")
     .style("border", "1px black solid")
-    .style("padding", "10px")
+    .style("padding", "4px")
+    .style("margin", "1px")
     .text(function(d){return d.value;})
     .style("font-size", "12px")
     .style("color", function(d) {
@@ -110,10 +112,14 @@ d3.select('#gameTable')
       else if (d.value === 8) {
         return 'black';
       }
-    });
+    })
+    // .on('click', function(d,i) {
+    //   d3.select(this).style("color", 'inline')
+    // });
 
-d3.selectAll('td.space')
- .on('click', function(d) {
-   d3.select(this).style("visibility", "visible");
- })
+// d3.selectAll('td.space')
+//  d3.selectAll('tr')
+//  .on('click', function(d,i) {
+//    this.classed('hidden', false)
+//  })
 
