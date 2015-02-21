@@ -33,11 +33,15 @@ board.grid = makeEmptyMatrix(board.size);
 
 _.each(bomb.locations, function(bombLoc) {
   board.grid[bombLoc[0]][bombLoc[1]].value = 9;
+  console.log(bombLoc[0], bombLoc[1], board.grid[bombLoc[0]][bombLoc[1]].value);
 });
+console.log(board.grid);
 
 _.each(board.grid, function(rowArr, row) {
   _.each(rowArr, function(space, col) {
-    space.value = countNeighborBombs(row, col);
+    if (space.value !== 9) {
+      space.value = countNeighborBombs(row, col);
+    }
   });
 });
 console.log(board.grid);
