@@ -77,7 +77,37 @@ d3.select('#gameTable')
     .style("border", "1px black solid")
     .style("padding", "10px")
     .text(function(d){return d.value;})
-    .style("font-size", "12px");
-    // .attr('height', boardSettings.spaceHeight + 'px')
-    // .attr('width', boardSettings.spaceWidth + 'px');
+    .style("font-size", "12px")
+    .style("color", function(d) {
+      if (d.value === 9) {
+        return 'red';
+      }
+      else if (d.value === 0) {
+        return 'blue';
+      }
+      else if (d.value === 1) {
+        return 'orange';
+      }
+      else if (d.value === 2) {
+        return 'green';
+      }
+      else if (d.value === 3) {
+        return 'brown';
+      }
+      else if (d.value === 4) {
+        return 'gray';
+      }
+      else if (d.value === 5) {
+        return 'yellow';
+      }
+      else if (d.value === 6) {
+        return 'purple';
+      }
+      else if (d.value === 7) {
+        return 'black';
+      }
+      else if (d.value === 8) {
+        return 'black';
+      }
+    });
 
